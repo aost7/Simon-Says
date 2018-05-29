@@ -11,6 +11,7 @@ import asyncio
 
 #Start of pop-up window code
 top = tkinter.Tk()
+top.title("Autumn Says")
 #pop up window loaded size
 top.geometry("515x400")
 
@@ -62,8 +63,14 @@ def buttonRight():
           #positions the canvas
           canvas.place(x=200, y=0)
           #updates window to show new color
-          label = tkinter.Label(top, text=str(len(colors)))
-          label.place(x=500, y=0)
+
+          #makes it so you can't click buttons while it displays colors
+          R.config(state = "disabled")
+          G.config(state = "disabled")
+          Y.config(state = "disabled")
+          B.config(state = "disabled")
+          P.config(state = "disabled")
+          
           top.update()
           #shows color for sec
           time.sleep(.8)
@@ -78,8 +85,16 @@ def buttonRight():
           #positions the canvas
           canvas.place(x=200, y=0)
           #updates window to show new color
-          label = tkinter.Label(top, text=str(len(colors)))
-          label.place(x=500, y=0)
+          label = tkinter.Label(top, text="score: " + str(len(colors) - 1))
+          label.place(x=450, y=0)
+
+          #makes it so you can't click buttons while it displays colors
+          R.config(state = "disabled")
+          G.config(state = "disabled")
+          Y.config(state = "disabled")
+          B.config(state = "disabled")
+          P.config(state = "disabled")
+          
           top.update()
           #shows color for .7 sec
           time.sleep(.45)
@@ -88,6 +103,13 @@ def buttonRight():
           canvas.place(x=200, y=0)
           top.update()
           time.sleep(.19)
+
+       #makes it so you can't click buttons while it displays colors
+       R.config(state = "normal")
+       G.config(state = "normal")
+       Y.config(state = "normal")
+       B.config(state = "normal")
+       P.config(state = "normal")
 #end of buttonRight
 
 #if you click the wrong color button
@@ -125,7 +147,7 @@ def tryAgain():
    time.sleep(.1)
    buttonRight() 
    label = tkinter.Label(top)
-   label.place(x=500, y=0)
+   label.place(x=450, y=0)
    TA.place_forget()
    X.place_forget()
 
@@ -265,7 +287,7 @@ P.place(x=200, y=200)
 #starts game
 buttonRight() 
 label = tkinter.Label(top)
-label.place(x=500, y=0)
+label.place(x=450, y=0)
 
 #End of pop up window code
 top.mainloop()
